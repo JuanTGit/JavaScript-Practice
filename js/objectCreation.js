@@ -28,3 +28,21 @@ let knightTwo = {
 }
 
 console.log(knightTwo.phrases[1])
+
+// Objects with functions
+	// Objects also have a built in 'this' keyword
+
+let archer = {
+	level: 20,
+	weapon: weapon.range,
+	stats: {
+		hitpoints: 45,
+		range: 50
+	},
+	retalialte: function(){
+		console.log(`You have attacked the Archer! He fires back! He has a range level of ${this.stats.range}`)
+		return 'You have attacked the Archer! He fires back!'
+	}
+}
+
+archer.retalialte()
