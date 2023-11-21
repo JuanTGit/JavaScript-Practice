@@ -74,7 +74,6 @@ function Defender(classType, level, hitpoints){
 	defender.hitpoints = hitpoints;
 
 	return defender
-
 }
 
 const knight = Defender('Knight', 20, 100)
@@ -84,3 +83,26 @@ const mage = Defender('Mage', 20, 100)
 console.log(knight.takeDamage(20))
 
 console.log(knight.healHitpoints(20))
+console.log(knight)
+
+
+//////////////////////////////////////////
+
+const animalMethods = {	
+	play: function(time){
+		this.energy -= time
+		console.log(`${this.name} is playing and is now at ${this.energy} energy!`)
+	},
+}
+
+function Animal(name, energy){
+	let animal = Object.create(animalMethods)
+	animal.name = name;
+	animal.energy = energy;
+
+	return animal
+}
+
+const snoopy = Animal('Snoopy', 50)
+console.log(snoopy.play(20))
+
