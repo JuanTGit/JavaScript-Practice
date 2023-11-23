@@ -106,3 +106,7 @@ function Animal(name, energy){
 const snoopy = Animal('Snoopy', 50)
 console.log(snoopy.play(20))
 
+/////////////////////////////
+// Prototype Instantiation //
+/////////////////////////////
+
