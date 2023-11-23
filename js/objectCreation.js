@@ -95,7 +95,7 @@ const animalMethods = {
 	},
 }
 
-function Animal(name, energy){
+function Animal2(name, energy){
 	let animal = Object.create(animalMethods)
 	animal.name = name;
 	animal.energy = energy;
@@ -103,10 +103,33 @@ function Animal(name, energy){
 	return animal
 }
 
-const snoopy = Animal('Snoopy', 50)
-console.log(snoopy.play(20))
+const snoopy = Animal2('Snoopy', 50)
+console.log(snoopy)
 
 /////////////////////////////
 // Prototype Instantiation //
 /////////////////////////////
+
+function Animal(name, energy){
+	let animal = Object.create(Animal.prototype)
+	animal.name = name;
+	animal.energy = energy;
+
+	return animal
+}
+
+Animal.prototype.sleep = function(amount){
+	this.energy += amount
+	console.log(`${this.name} is Sleeping! Energy at ${this.energy}.`)
+}
+Animal.prototype.play = function(amount){
+	this.energy -= amount
+	console.log(`${this.name} is Playing! Energy drained and now at ${this.energy}.`)
+}
+
+const odin = Animal('Odin', 80)
+
+console.log(odin.sleep(20))
+console.log(odin.play(20))
+
 
