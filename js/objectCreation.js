@@ -126,6 +126,10 @@ Animal.prototype.play = function(amount){
 	this.energy -= amount
 	console.log(`${this.name} is Playing! Energy drained and now at ${this.energy}.`)
 }
+Animal.prototype.eat = function(amount){
+	this.energy += amount
+	console.log(`${this.name} is eating. Energy up to ${this.energy}`)
+}
 
 const odin = Animal('Odin', 80)
 
