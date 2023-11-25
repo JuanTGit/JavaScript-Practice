@@ -110,12 +110,44 @@ console.log(snoopy)
 // Prototype Instantiation //
 /////////////////////////////
 
-function Animal(name, energy){
-	let animal = Object.create(Animal.prototype)
-	animal.name = name;
-	animal.energy = energy;
+// function Animal(name, energy){
+// 	let animal = Object.create(Animal.prototype)
+// 	animal.name = name;
+// 	animal.energy = energy;
 
-	return animal
+// 	return animal
+// }
+
+// Animal.prototype.sleep = function(amount){
+// 	this.energy += amount
+// 	console.log(`${this.name} is Sleeping! Energy at ${this.energy}.`)
+// }
+// Animal.prototype.play = function(amount){
+// 	this.energy -= amount
+// 	console.log(`${this.name} is Playing! Energy drained and now at ${this.energy}.`)
+// }
+// Animal.prototype.eat = function(amount){
+// 	this.energy += amount
+// 	console.log(`${this.name} is eating. Energy up to ${this.energy}`)
+// }
+
+// const odin = Animal('Odin', 80)
+
+// console.log(odin.sleep(20))
+// console.log(odin.play(20))
+
+////////////////////////////////////
+// Instantiation with new keyword //
+// Pseudoclassical Instantiation  //
+////////////////////////////////////
+
+
+function Animal(name, energy){
+	// let animal = Object.create(Animal.prototype)
+	this.name = name;
+	this.energy = energy;
+
+	// return animal
 }
 
 Animal.prototype.sleep = function(amount){
@@ -131,9 +163,7 @@ Animal.prototype.eat = function(amount){
 	console.log(`${this.name} is eating. Energy up to ${this.energy}`)
 }
 
-const odin = Animal('Odin', 80)
+const odin = new Animal('Odin', 80)
 
 console.log(odin.sleep(20))
 console.log(odin.play(20))
-
-
