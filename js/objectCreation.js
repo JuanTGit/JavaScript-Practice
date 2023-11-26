@@ -53,37 +53,37 @@ console.clear()
 // Functional Instantiation //
 //////////////////////////////
 
-const defenderMethods = {
-	takeDamage: function(damage){
-		console.log(`${this.classType} has Taken ${damage} damage worth of hitpoints!`);
-		this.hitpoints -= damage;
-		console.log(`Hitpoints now at: ${this.hitpoints}`);
-	},
+// const defenderMethods = {
+// 	takeDamage: function(damage){
+// 		console.log(`${this.classType} has Taken ${damage} damage worth of hitpoints!`);
+// 		this.hitpoints -= damage;
+// 		console.log(`Hitpoints now at: ${this.hitpoints}`);
+// 	},
 
-	healHitpoints: function(heal){
-		console.log(`${this.classType} has healed ${heal} hitpoints!`);
-		this.hitpoints += heal;
-		console.log(`Hitpoints now at: ${this.hitpoints}`)
-	} 
-}
+// 	healHitpoints: function(heal){
+// 		console.log(`${this.classType} has healed ${heal} hitpoints!`);
+// 		this.hitpoints += heal;
+// 		console.log(`Hitpoints now at: ${this.hitpoints}`)
+// 	} 
+// }
 
-function Defender(classType, level, hitpoints){
-	let defender = Object.create(defenderMethods);
-	defender.classType = classType;
-	defender.level = level;
-	defender.hitpoints = hitpoints;
+// function Defender(classType, level, hitpoints){
+// 	let defender = Object.create(defenderMethods);
+// 	defender.classType = classType;
+// 	defender.level = level;
+// 	defender.hitpoints = hitpoints;
 
-	return defender
-}
+// 	return defender
+// }
 
-const knight = Defender('Knight', 20, 100)
-const archer = Defender('Archer', 15, 100)
-const mage = Defender('Mage', 20, 100)
+// const knight = Defender('Knight', 20, 100)
+// const archer = Defender('Archer', 15, 100)
+// const mage = Defender('Mage', 20, 100)
 
-console.log(knight.takeDamage(20))
+// console.log(knight.takeDamage(20))
 
-console.log(knight.healHitpoints(20))
-console.log(knight)
+// console.log(knight.healHitpoints(20))
+// console.log(knight)
 
 
 //////////////////////////////////////////
@@ -167,3 +167,50 @@ const odin = new Animal('Odin', 80)
 
 console.log(odin.sleep(20))
 console.log(odin.play(20))
+
+
+///////////////////////////////////
+// ES6 - Using the class keyword //
+///////////////////////////////////
+
+// const defenderMethods = {
+	// takeDamage: function(damage){
+	// 	console.log(`${this.classType} has Taken ${damage} damage worth of hitpoints!`);
+	// 	this.hitpoints -= damage;
+	// 	console.log(`Hitpoints now at: ${this.hitpoints}`);
+	// },
+
+	// healHitpoints: function(heal){
+	// 	console.log(`${this.classType} has healed ${heal} hitpoints!`);
+	// 	this.hitpoints += heal;
+	// 	console.log(`Hitpoints now at: ${this.hitpoints}`)
+	// } 
+// }
+
+class Defender{
+	constructor(classType, level, hitpoints){
+		this.classType = classType;
+		this.level = level;
+		this.hitpoints = hitpoints;
+	}
+}
+
+Defender.prototype.takeDamage = function(damage){
+	console.log(`${this.classType} has Taken ${damage} damage worth of hitpoints!`);
+	this.hitpoints -= damage;
+	console.log(`Hitpoints now at: ${this.hitpoints}`);
+};
+Defender.prototype.healHitpoints = function(heal){
+	console.log(`${this.classType} has healed ${heal} hitpoints!`);
+	this.hitpoints += heal;
+	console.log(`Hitpoints now at: ${this.hitpoints}`)
+} 
+
+const knight = new Defender('Knight', 20, 100)
+const archer = new Defender('Archer', 15, 100)
+const mage = new Defender('Mage', 20, 100)
+
+
+console.log(knight.takeDamage(20))
+console.log(knight.healHitpoints(20))
+console.log(knight)
