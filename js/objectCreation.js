@@ -188,23 +188,23 @@ console.log(odin.play(20))
 // }
 
 class Defender{
-	constructor(classType, level, hitpoints){
+	constructor(classType, level=3, hitpoints){
 		this.classType = classType;
 		this.level = level;
 		this.hitpoints = hitpoints;
 	}
-}
 
-Defender.prototype.takeDamage = function(damage){
-	console.log(`${this.classType} has Taken ${damage} damage worth of hitpoints!`);
-	this.hitpoints -= damage;
-	console.log(`Hitpoints now at: ${this.hitpoints}`);
-};
-Defender.prototype.healHitpoints = function(heal){
-	console.log(`${this.classType} has healed ${heal} hitpoints!`);
-	this.hitpoints += heal;
-	console.log(`Hitpoints now at: ${this.hitpoints}`)
-} 
+	heal(health){
+		console.log(`${this.classType} has healed ${health} hitpoints!`);
+		this.hitpoints += health;
+		console.log(`Hitpoints now at: ${this.hitpoints}`)
+	}
+	takeDamage(damage){
+		console.log(`${this.classType} has Taken ${damage} damage worth of hitpoints!`);
+		this.hitpoints -= damage;
+		console.log(`Hitpoints now at: ${this.hitpoints}`);
+	}
+}
 
 const knight = new Defender('Knight', 20, 100)
 const archer = new Defender('Archer', 15, 100)
@@ -212,5 +212,5 @@ const mage = new Defender('Mage', 20, 100)
 
 
 console.log(knight.takeDamage(20))
-console.log(knight.healHitpoints(20))
+console.log(knight.heal(20))
 console.log(knight)
