@@ -246,3 +246,18 @@ class Human{
 const alex = new Human('Alex', 19, 'M')
 const shrek = new Human('Shrek', 34, 'M')
 
+class Child extends Human{
+	constructor(childName, childAge, childGender, isAdult=false){
+		super(childName, childAge, childGender)
+	}
+	adult(childAge) {
+		if (childAge > 17){
+			this.age = childAge
+			this.isAdult = true
+		} else {
+			this.age = childAge
+		}
+	}
+}
+
+const brian = new Child('Brian', 13, 'M')
