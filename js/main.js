@@ -119,3 +119,7 @@ let sumArrow = (arr) => {
 // Call function here with arguments
 console.log(sumArrow([10, 12, -9, 3, -1, 0, 15]))
 console.log(sumArrow([3, 5, 7, 9, -10, 2, -22, -1]))
+
+
+
+
