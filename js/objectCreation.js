@@ -188,10 +188,10 @@ console.log(odin.play(20))
 // }
 
 class Defender{
-	constructor(classType, level=3, hitpoints){
+	constructor(classType, hitpoints, level=3){
 		this.classType = classType;
-		this.level = level;
 		this.hitpoints = hitpoints;
+		this.level = level;
 	}
 
 	heal(health){
@@ -204,13 +204,45 @@ class Defender{
 		this.hitpoints -= damage;
 		console.log(`Hitpoints now at: ${this.hitpoints}`);
 	}
+	levelUp(experience){
+		console.log(`${this.classType} has gained ${experience} experience.`)
+		this.level += experience
+		console.log(`${this.classType} is now level: ${this.level}`)
+	}
 }
 
-const knight = new Defender('Knight', 20, 100)
-const archer = new Defender('Archer', 15, 100)
-const mage = new Defender('Mage', 20, 100)
-
+const knight = new Defender('Knight', 100)
+const archer = new Defender('Archer', 100, 20)
+const mage = new Defender('Mage', 100, 15)
 
 console.log(knight.takeDamage(20))
 console.log(knight.heal(20))
+console.log(knight.levelUp(10))
 console.log(knight)
+
+console.clear()
+
+///////////////////////
+// Class Inheritance //
+///////////////////////
+
+
+class Human{
+	constructor(name, age, gender){
+		this.name = name;
+		this.age = age;
+		this.gender = gender;
+	}
+
+	birthday(age){
+		this.age += age
+	}
+
+	genderSwap(gender){
+		this.gender = gender
+	}
+}
+
+const alex = new Human('Alex', 19, 'M')
+const shrek = new Human('Shrek', 34, 'M')
+
