@@ -23,7 +23,10 @@ names.forEach(callBack)
 
 names.forEach((e, i, a) => {console.log(a, e, i)})
 
-// array.prototype.map()
+///////////////////////////
+// array.prototype.map() //
+///////////////////////////
+
 myNumbers = [1, 2, 3, 4, 5]
 
 function myNumSqOrCb(x, idx){
