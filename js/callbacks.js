@@ -83,4 +83,39 @@ function playSong(song){
     console.log(`${song} is now playing...`)
 }
 
-downloadSong('Kid Cudi', playSong)
+// downloadSong('Kid Cudi', playSong)
+
+// Though callbacks give us more functionality... 
+// They also introduce their own problem: Callback Hell
+
+let song1 = 'Enter Sandman'
+let song2 = 'Miss Summer'
+let song3 = 'North Face'
+
+// downloadSong(song1, (s) => {
+//     console.log(`${song1} is now saved.`)
+//     downloadSong(song2, (s) => {
+//         console.log(`${song2} is now saved.`)
+//         downloadSong(song3, (s) => {
+//             console.log(`${song3} is now saved.`)
+//         })
+//     })
+// })
+
+
+// Handling Errors
+
+function downloadSong2(songName, callbackSuccess, callbackFail){
+    console.log(`${songName} has begun downloading...`)
+    setTimeout(() => {
+        let isValid = songName.length !== 0;
+
+        isValid ? callbackSuccess(songName) : callbackFail(songName)
+
+    }, 3000)
+}
+
+downloadSong2(song2, 
+    (s) => console.log(`${s} has been saved successfully!`),
+    (s) => console.error(`Error downloading ${s}`)
+    )
