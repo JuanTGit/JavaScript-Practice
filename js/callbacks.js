@@ -43,3 +43,44 @@ function buttonClicked(){
 }
 
 myButton.addEventListener('click', buttonClicked);
+
+console.clear()
+
+/////////////////////
+// Async Examples //
+////////////////////
+
+// JavaScript works asynchronously, the second function will execute before the first finishes.
+
+// function first(){
+//     console.log('First started...')
+//     setTimeout(() => console.log('First ended...'),
+//     3000)
+// }
+
+// function second(){
+//     console.log('Second started...')
+//     console.log('Second ended...')
+// }
+
+// first();
+// second();
+
+console.clear()
+// Real World Async example //
+
+function downloadSong(songName, callback){
+    console.log(`${songName} has begun downloading...`)
+    setTimeout(() => {
+        console.log(`${songName} has finished downloading...`)
+        callback(songName)
+    },
+    3000)
+    return songName
+}
+
+function playSong(song){
+    console.log(`${song} is now playing...`)
+}
+
+downloadSong('Kid Cudi', playSong)
