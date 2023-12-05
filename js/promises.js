@@ -40,12 +40,43 @@ function downloadSong(songName){
 
 // chaining
 
-downloadSong('')
-    .then(s => {
-        console.log(s + '!!!!')
-        return s.toUpperCase()
-    })
-    .then(val => console.log(val))
-    .catch(err => console.error(err))
-    .finally(() => console.log('Promise Over'))
+// downloadSong('The One That Got Away')
+//     .then(s => {
+//         console.log(s + '!!!!')
+//         return s.toUpperCase()
+//     })
+//     .then(val => console.log(val))
+//     .catch(err => console.error(err))
+//     .finally(() => console.log('Promise Over'))
 
+
+// Real world example using promises and callbacks
+
+function getUser(userId){
+    return new Promise((resolve, reject) => {
+        console.log(`Getting user ${userId} from database.`)
+        setTimeout(() => {
+            resolve({
+                userId: userId,
+                username: 'jtejeda'
+            })
+        }, 1000)
+    })
+}
+
+// console.log(getUser(123).then(user => console.log(user.username)))
+
+function getUserOrder(user){
+    return new Promise((resolve, reject) => {
+        console.log(`Getting ${user.username} order from database.`)
+        setTimeout(() => {
+            resolve([
+                {prodName: 'Laptop', price: 1000},
+                {prodName: 'iPhone15', price: 1200},
+                {prodName: 'slippers', price: 20}
+            ])
+        }, 1000)
+    })
+}
+
+console.log(getUserOrder({username: 'jtejeda'}).then(arr => arr.forEach(e => console.log(e.price))))
