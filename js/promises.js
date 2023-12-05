@@ -104,10 +104,14 @@ function getOrderTotal(order){
 // Using async/await
 
 async function calculateUserOrder(userID){
-    let user = await getUser(userID);
-    let order = await getUserOrder(user);
-    let total = await getOrderTotal(order);
-    console.log(`Your total is $${total}, cash or credit?`)
+    try{
+        let user = await getUser(userID);
+        let order = await getUserOrder(user);
+        let total = await getOrderTotal(order);
+        console.log(`Your total is $${total}, cash or credit?`)
+    } catch(err){
+        console.error(err)
+    }
 }
 
 calculateUserOrder(123)
