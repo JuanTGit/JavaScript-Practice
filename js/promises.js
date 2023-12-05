@@ -51,6 +51,7 @@ function downloadSong(songName){
 
 
 // Real world example using promises and callbacks
+// Users => user order => calculate order total.
 
 function getUser(userId){
     return new Promise((resolve, reject) => {
@@ -79,4 +80,34 @@ function getUserOrder(user){
     })
 }
 
-console.log(getUserOrder({username: 'jtejeda'}).then(arr => arr.forEach(e => console.log(e.price))))
+// console.log(getUserOrder({username: 'jtejeda'}).then(arr => arr.forEach(e => console.log(e.price))))
+
+function getOrderTotal(order){
+    return new Promise((resolve, reject) => {
+        console.log(`Calculating order total...`)
+        setTimeout(() => {
+            let total = 0;
+            for (let item of order){
+                total += item.price
+            }
+            resolve(total)
+        }, 1000)
+    })
+}
+
+// getUser(123)
+//     .then(user => getUserOrder(user))
+//     .then(order => getOrderTotal(order))
+//     .then(total => console.log(`Your total is $${total}`))
+//     .catch(err => console.error(err))
+
+// Using async/await
+
+async function calculateUserOrder(userID){
+    let user = await getUser(userID);
+    let order = await getUserOrder(user);
+    let total = await getOrderTotal(order);
+    console.log(`Your total is $${total}, cash or credit?`)
+}
+
+calculateUserOrder(123)
