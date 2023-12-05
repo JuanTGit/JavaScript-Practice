@@ -114,4 +114,64 @@ async function calculateUserOrder(userID){
     }
 }
 
-calculateUserOrder(123)
+// calculateUserOrder(123)
+
+
+
+// User => User order => Calculate user total
+
+async function getUser2(userId){
+    console.log(`Getting user from id: ${userId}`)
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve({
+                userId: userId,
+                username: 'juant'
+                })
+        }, 1000)
+    })
+}
+
+async function getUserOrder2(user){
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve([
+                {item: 'Coke', price: 4},
+                {item: 'Sprite', price: 2},
+                {item: 'ice', price: 1}
+            ])
+        }, 1000)
+    })
+}
+
+// getUser2(123).then(user => getUserOrder2(user.username)).then(arr => arr.forEach(e => console.log(`item: ${e.item} $${e.price}`)))
+
+async function calculateOrder(order){
+    console.log('Calculating total price')
+    return new Promise((resolve, reject) => {
+        let total = 0;
+        for (let item of order){
+            total += item.price
+        }
+        resolve(total)
+    }, 1000)
+}
+
+// getUser2(1)
+//     .then(user => getUserOrder2(user.username))
+//     .then(order => calculateOrder(order))
+//     .then(total => console.log(`Total $${total}`))
+
+
+async function calculateUserOrder2(userID){
+    try{
+        let user = await getUser2(userID);
+        let order = await getUserOrder2(user);
+        let total = await calculateOrder(order)
+        console.log(`${user.username}'s total come out to $${total}`)
+    } catch(err){
+        console.error(err)
+    }
+}
+
+calculateUserOrder2(1)
