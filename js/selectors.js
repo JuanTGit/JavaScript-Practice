@@ -23,7 +23,7 @@ console.clear()
 
 // Set up a button to change the backgroud on myElement
 let clicker = document.getElementById('btn')
-console.log(clicker) 
+// console.log(clicker) 
 
 // Add callback function to change background color
 
@@ -40,5 +40,27 @@ const colorChange = () => {
 clicker.addEventListener('click', colorChange)
 
  
+let anotherHeader = document.getElementsByTagName('h1')[2]
+
+anotherHeader.addEventListener('mouseenter', () => anotherHeader.innerHTML = 'Mouse hovering');
+anotherHeader.addEventListener('mouseleave', () => anotherHeader.innerHTML = 'Hello!');
+
+// Use JS to create new elements
+
+let newButton = document.createElement('button')
+newButton.innerHTML = 'New Button!'
+newButton.style = "color: blue; padding: 10px"
+
+// Add new element to document
+document.body.append(newButton)
+
+// Add event listener to new element
+newButton.addEventListener('click', () => {
+    // console.log('I have been clicked!')
+    let newHeader = document.createElement('h2');
+    newHeader.innerHTML = prompt('What would you like to say?');
+    newHeader.className = 'color';
+    document.body.append(newHeader);
+})
 
 
