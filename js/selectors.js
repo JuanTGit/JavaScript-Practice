@@ -64,3 +64,17 @@ newButton.addEventListener('click', () => {
 })
 
 
+
+// Using JS to grab data from a submitted form
+
+// Get form using the document
+const testDataForm = document.querySelector('#testDataForm');
+// console.log(testDataForm)
+
+testDataForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    console.log(event)
+    let firstName = event.target.first.value
+    let lastName = event.target.last.value
+    console.log(firstName, lastName)
+})
