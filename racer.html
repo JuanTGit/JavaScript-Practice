@@ -11,9 +11,9 @@
 <title>Racer Data</title>
 </head>
 <body>
-    <div class="container d-flex justify-content-center text-center">
+    <div class="container d-flex justify-content-center">
         <!-- Header -->
-        <div class="row">
+        <div class="row text-center">
             <div class="col-12 m-3">
                 <h1>Racer Information</h1>
             </div>
@@ -23,17 +23,22 @@
             <div class="col-12 m-3">
                 <form action="" id="raceForm">
                     <label for="pokeName">Which f1 race would you like Information on?</label>
-                    <input type="text" name="raceName" id="raceName">
-                    <input type="submit" value="Search">
+                    <div class="">
+                        <label for="raceSeason">Season: </label>
+                        <input type="text" name="raceSeason" id="raceSeason">
+                        <label for="raceSeason">Round: </label>
+                        <input type="text" name="raceRound" id="raceRound">
+                        <input type="submit" value="Search">
+                    </div>
                 </form>
             </div>
 
         <!-- Race object list -->
-        <div class="col-12">
-            <table class="table table-striped" id="raceList">
-                ...
-            </table>
-        </div>
+            <div class="col-12">
+                <ul id="raceList">
+
+                </ul>
+            </div>
         </div>
 
     </div>
