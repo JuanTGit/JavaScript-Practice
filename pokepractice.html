@@ -14,11 +14,24 @@
 <body>
     <div class="container">
         <!-- Header -->
-        <h1 class="text-center">Pokemon Stats</h1>
+        <h1 class="text-center m-3">Pokemon Stats</h1>
 
         <!-- Form to take in pokemon data -->
 
+        <h3 class="text-center">Which pokemon would you like Information on?</h3>
+        <div class="m-3 d-flex justify-content-center">
+            <form action="" id="pokeForm" class="d-flex align-items-center">
+                <input class="form-control" type="text" placeholder="Pokemon" name="pokeName" id="pokeName">
+                <input class="btn btn-primary" type="submit" value="Submit">
+            </form>
+        </div>
+
+
         <!-- Display information for pokemon -->
+
+        <ul id="pokeList">
+
+        </ul>
 
 
     </div>
