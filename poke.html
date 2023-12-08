@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="Description" content="Enter your description here"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<!-- <link rel="stylesheet" href="assets/css/style.css"> -->
+<script src="./js/poke.js" defer></script>
+<title>Pokemon API</title>
+</head>
+<body>
+    <div class="container d-flex justify-content-center text-center">
+        <!-- Header -->
+        <div class="row">
+            <div class="col-12 m-3">
+                <h1>Pokemon Information</h1>
+            </div>
+
+
+        <!-- form information -->
+            <div class="col-12 m-3">
+                <form action="" id="pokeForm">
+                    <label for="pokeName">Which pokemon would you like Information on?</label>
+                    <input type="text" name="pokeName" id="pokeName">
+                    <input type="submit" value="Search">
+                </form>
+            </div>
+
+        <!-- Pokemon object list -->
+        <div class="col-12">
+            <ul id="pokeList">
+
+            </ul>
+        </div>
+        </div>
+
+    </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
+</body>
+</html>
